@@ -14,44 +14,28 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
 	{
-		name: "Thomas Kevin",
+		name: "Narayana Swamy",
+		role: "Founder, Biz-Network®",
+		quote:
+			"Working with HS Dev has been a game-changer for Biz-Network®. We’ve taken several full-stack and front-end applications from HS Dev. Each one delivered with precision, performance, and attention to detail. From our main Biz-Network® platform to supporting tools, their work has consistently exceeded expectations.",
+		avatar:
+			"https://res.cloudinary.com/dsq4uyqbb/image/upload/v1741327062/n_f2djcv.jpg",
+	},
+	{
+		name: "Mahesh Devarakonda",
 		role: "Business Owner",
 		quote:
-			"Clean wiring, clear labeling, and proper testing documents—everything was handover-ready. Safety standards were followed without compromise.",
+			"I'm really happy with how the Rolanplast website turned out. The design is clean, smooth, and interactive. The team was quick to respond, made all the changes I asked for, and made the whole process easy and stress-free.",
 		avatar:
-			"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1766567940/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo_hdhwvt.jpg",
+			"https://res.cloudinary.com/dgulr1hgd/image/upload/v1744695457/mahesh_vgalio.jpg",
 	},
 	{
-		name: "Ayesha Rahman",
-		role: "Facility Manager",
+		name: "Rajesh",
+		role: "Operations Manager",
 		quote:
-			"Clear documentation, clean deployment and excellent coordination. A reliable technology partner.",
+			"The admin panel is really easy to use. I can add new spaces, update the gallery, and control availability without any trouble. The user side is smooth too, and everything works perfectly. HS Dev made it simple and efficient for both admins and users.",
 		avatar:
-			"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1766567966/803310b69b26c1c0e2f6bf3f62bc54e28d-28-american-woman-104.rsquare.w400_vcuglz.jpg",
-	},
-	{
-		name: "Arjun Patel",
-		role: "Home Owner",
-		quote:
-			"From planning to execution, the process was transparent and efficient. Results were measurable.",
-		avatar:
-			"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1766567940/961px-Outdoors-man-portrait__28cropped_29_ho5s6y.jpg",
-	},
-	{
-		name: "Meera Nair",
-		role: "Operations Head",
-		quote:
-			"Execution quality was excellent and timelines were maintained perfectly.",
-		avatar:
-			"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1766567968/beautiful-young-latin-american-woman-portrait-woman-walking-in-evening-city-in-hat-with-curly-hair-in-warm-weather-smiling-and-looking-at-camera-close-up-photo_ozjifb.jpg",
-	},
-	{
-		name: "Ravi Kumar",
-		role: "Project Lead",
-		quote:
-			"A professional team with strong technical expertise and structured execution.",
-		avatar:
-			"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1766567940/premium_photo-1664536392779-049ba8fde933_hvx006.jpg",
+			"https://res.cloudinary.com/dk0smdu0d/image/upload/v1758024373/WhatsApp_Image_2025-09-16_at_17.19.30_bfd962e4_ykyf5n.jpg",
 	},
 ];
 
@@ -63,21 +47,22 @@ const POSITIONS = [
 ];
 
 export default function Testimonials() {
-	const [active, setActive] = useState(1);
+	const [active, setActive] = useState(0);
 	const total = TESTIMONIALS.length;
 
 	useEffect(() => {
-		const id = setInterval(() => {
+		const interval = setInterval(() => {
 			setActive((prev) => (prev + 1) % total);
 		}, 4000);
-		return () => clearInterval(id);
-	}, []);
+
+		return () => clearInterval(interval);
+	}, [total]);
 
 	const current = TESTIMONIALS[active];
 
 	return (
 		<section className="relative overflow-hidden py-24 bg-white">
-			{/* Soft Background Gradient */}
+			{/* Background */}
 			<div className="absolute inset-0 pointer-events-none">
 				<div className="absolute inset-0 bg-gradient-to-b from-[#0365D0]/5 via-white to-[#0E3C6E]/5" />
 			</div>
@@ -94,8 +79,10 @@ export default function Testimonials() {
 				{/* Stage */}
 				<div className="relative mt-20 min-h-[520px]">
 					{/* Floating Avatars */}
-					{TESTIMONIALS.slice(0, 4).map((t, i) => {
-						const isActive = TESTIMONIALS.indexOf(current) === i;
+					{TESTIMONIALS.map((t, i) => {
+						if (!POSITIONS[i]) return null;
+
+						const isActive = active === i;
 
 						return (
 							<motion.button
@@ -110,20 +97,20 @@ export default function Testimonials() {
 										repeat: Infinity,
 										ease: "easeInOut",
 									}}
-									className={`relative h-16 w-16 rounded-full bg-white shadow-md transition
-        ${
-					isActive
-						? "ring-2 ring-[#0365D0] ring-offset-4 ring-offset-white"
-						: "ring-1 ring-black/10"
-				}`}>
+									className={`relative h-16 w-16 rounded-full bg-white shadow-md transition ${
+										isActive
+											? "ring-2 ring-[#0365D0] ring-offset-4 ring-offset-white"
+											: "ring-1 ring-black/10"
+									}`}>
 									<Image
 										src={t.avatar}
 										alt={t.name}
 										fill
+										sizes="64px"
 										className="rounded-full object-cover"
 									/>
 
-									{/* Soft active glow */}
+									{/* Glow */}
 									{isActive && (
 										<span className="absolute -inset-4 rounded-full bg-[#0365D0]/15 blur-xl -z-10" />
 									)}
@@ -132,12 +119,12 @@ export default function Testimonials() {
 						);
 					})}
 
-					{/* Faded Quote Icon */}
+					{/* Quote icon */}
 					<div className="absolute left-1/2 top-16 -translate-x-1/2 text-[#0365D0]/10 text-[120px] font-serif select-none">
 						“”
 					</div>
 
-					{/* Quote Text */}
+					{/* Quote */}
 					<AnimatePresence mode="wait">
 						<motion.p
 							key={active}
@@ -150,13 +137,14 @@ export default function Testimonials() {
 						</motion.p>
 					</AnimatePresence>
 
-					{/* Center Profile */}
+					{/* Profile */}
 					<div className="mt-16 flex flex-col items-center">
 						<div className="relative h-20 w-20 rounded-full bg-white shadow-lg ring-2 ring-[#0365D0]/40 ring-offset-4 ring-offset-white">
 							<Image
 								src={current.avatar}
 								alt={current.name}
 								fill
+								sizes="80px"
 								className="rounded-full object-cover"
 							/>
 						</div>
@@ -164,6 +152,7 @@ export default function Testimonials() {
 						<p className="mt-4 text-xl font-semibold text-[#0B1220]">
 							{current.name}
 						</p>
+
 						<p className="text-sm text-black/40">{current.role}</p>
 
 						{/* Stars */}
