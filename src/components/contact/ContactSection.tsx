@@ -71,18 +71,12 @@ export default function ContactSection() {
 							</p>
 
 							<div className="mt-5 space-y-2 text-sm text-white/90">
-								<ContactInfo
-									icon={<Mail size={16} />}
-									text="info@vrtechforz.com"
-								/>
+								<ContactInfo icon={<Mail size={16} />} text="info@hsdev.com" />
 								<ContactInfo
 									icon={<MapPin size={16} />}
 									text="Hyderabad, India"
 								/>
-								<ContactInfo
-									icon={<Globe size={16} />}
-									text="www.vrtechforz.com"
-								/>
+								<ContactInfo icon={<Globe size={16} />} text="www.hsdev.in" />
 							</div>
 						</div>
 					</div>
