@@ -5,10 +5,11 @@ import {
 	Globe,
 	LayoutDashboard,
 	Settings,
-	Brain,
 	Zap,
 	Palette,
 	Wrench,
+	Mail,
+	BarChart3,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -65,22 +66,38 @@ const services: Service[] = [
 		impact: "Unify departments and gain real-time business visibility.",
 	},
 	{
-		icon: Brain,
+		icon: BarChart3,
 		number: "04",
-		title: "AI-Powered Solutions",
+		title: "CRM & Admin Dashboard Systems",
 		description:
-			"We integrate intelligent AI systems to automate processes and enhance decision-making.",
+			"We build custom CRM and admin panel systems to manage users, track business activities, and gain real-time insights.",
 		points: [
-			"AI chat systems",
-			"Automation tools",
-			"Data intelligence systems",
-			"AI-driven applications",
+			"Customer & lead management systems",
+			"Custom admin dashboards",
+			"Real-time analytics & reporting",
+			"Referral & activity tracking systems",
 		],
-		impact: "Save time, reduce errors, and improve productivity.",
+		impact:
+			"Gain full control over operations, track growth metrics, and make data-driven decisions.",
+	},
+	{
+		icon: Mail,
+		number: "05",
+		title: "Email Integrations",
+		description:
+			"We seamlessly integrate email services into your applications to enable reliable communication, automation, and real-time notifications.",
+		points: [
+			"SMTP & API integrations ",
+			"Transactional email setup",
+			"Event-based email triggers",
+			"Custom email workflows & automation",
+		],
+		impact:
+			"Ensure reliable delivery, automate communication, and enhance user engagement.",
 	},
 	{
 		icon: Zap,
-		number: "05",
+		number: "06",
 		title: "Business Automation",
 		description:
 			"We automate routine tasks to reduce manual work and improve operational efficiency.",
@@ -94,7 +111,7 @@ const services: Service[] = [
 	},
 	{
 		icon: Palette,
-		number: "06",
+		number: "07",
 		title: "UI/UX Design",
 		description:
 			"We design intuitive digital experiences that improve usability and customer trust.",
@@ -108,7 +125,7 @@ const services: Service[] = [
 	},
 	{
 		icon: Wrench,
-		number: "07",
+		number: "08",
 		title: "Maintenance & Support",
 		description:
 			"We ensure your technology remains secure, optimized, and future-ready.",
