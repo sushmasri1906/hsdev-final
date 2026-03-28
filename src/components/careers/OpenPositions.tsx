@@ -127,9 +127,9 @@ export default function OpenPositions() {
 							<p className="mt-4 text-gray-600 text-sm">
 								Send your resume to{" "}
 								<a
-									href="mailto:info@vrtechforz.com"
+									href="mailto:hsdev.original@gmail.com"
 									className="text-[#0365D0] font-medium hover:underline">
-									info@vrtechforz.com
+									hsdev.original@gmail.com
 								</a>{" "}
 								with subject:
 							</p>
