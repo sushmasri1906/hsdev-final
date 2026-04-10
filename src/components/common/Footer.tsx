@@ -59,7 +59,7 @@ export default function Footer() {
 
 				{/* Bottom */}
 				<div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-white/60 md:flex-row md:items-center">
-					<p>© {new Date().getFullYear()} HS Dev · Division of The VR Group</p>
+					<p>© {new Date().getFullYear()} HS Dev</p>
 
 					<p>
 						Trusted systems.{" "}
