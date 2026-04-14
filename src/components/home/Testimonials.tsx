@@ -37,6 +37,14 @@ const TESTIMONIALS: Testimonial[] = [
 		avatar:
 			"https://res.cloudinary.com/dk0smdu0d/image/upload/v1758024373/WhatsApp_Image_2025-09-16_at_17.19.30_bfd962e4_ykyf5n.jpg",
 	},
+	{
+		name: "Ashok Rao",
+		role: "Founder , Pogati Financial Services",
+		quote:
+			"HS Dev designed our landing page and handled our social media presence with great professionalism. The website looks clean and modern, and their social media strategy helped us improve engagement and reach. The team was responsive, easy to work with, and delivered everything on time.",
+		avatar:
+			"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1776156766/WhatsApp_Image_2026-04-14_at_2.12.04_PM_tsb9ze.jpg",
+	},
 ];
 
 const POSITIONS = [

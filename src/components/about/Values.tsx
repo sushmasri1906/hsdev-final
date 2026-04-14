@@ -8,6 +8,7 @@ import {
 	TrendingUp,
 	ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Values() {
 	const values = [
@@ -115,10 +116,17 @@ export default function Values() {
 								HS Dev is here to help.
 							</p>
 
-							<button className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#00A0E3] to-[#0365D0] px-6 py-3 text-white font-medium shadow-[0_0_20px_rgba(0,160,227,0.4)] hover:shadow-[0_0_30px_rgba(0,160,227,0.6)] transition">
+							<Link
+								href="/contact"
+								className="mt-10 inline-flex items-center gap-2 rounded-full 
+	bg-gradient-to-r from-[#00A0E3] to-[#0365D0] 
+	px-6 py-3 text-white font-medium 
+	shadow-[0_0_20px_rgba(0,160,227,0.4)] 
+	hover:shadow-[0_0_30px_rgba(0,160,227,0.6)] 
+	transition">
 								Start a Conversation
 								<ArrowRight size={18} />
-							</button>
+							</Link>
 						</motion.div>
 					</div>
 				</div>
